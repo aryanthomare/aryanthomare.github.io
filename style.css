@@ -1,0 +1,40 @@
+
+.sidebar{
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 25%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: rgba(150, 255,0, 0.5);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    justify-content: center;
+}
+
+
+
+
+.Name{
+    text-align: center;
+    word-wrap: break-word;
+    font-size: 3vw;
+    object-fit: contain;
+}
+
+.profilepic{
+    max-height: 30%;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+.subtit{
+    text-align: center;
+    font-size: 1vw;
+
+}
