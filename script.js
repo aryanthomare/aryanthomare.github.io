@@ -291,6 +291,12 @@ function changepage3(){
 function changepage4(){
     window.location.href = 'art.html';
 };
+function changepage5(){
+    window.location.href = 'wip.html';
+};
+function changepage6(){
+    window.location.href = 'wip.html';
+};
 
 function redc(c){
 	
