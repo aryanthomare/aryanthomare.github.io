@@ -8,7 +8,7 @@ body {
     overflow: hidden;
     white-space: nowrap;
     font-family: 'Fira Code';
-    font-size: 7vh;
+    font-size: 4vw;
     text-align:center;
     width: 0;
     border-right: .12em solid orange;
@@ -127,7 +127,7 @@ body {
     text-align: center;
     margin: 2vh;
     text-decoration: none;
-    font-size: 3vh;
+    font-size: 2vw;
     
 }
 
