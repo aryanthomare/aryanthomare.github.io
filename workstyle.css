@@ -375,18 +375,21 @@ body {
 }
 
 
-@media (max-width: 800px) {
+@media only screen and (max-width: 800px) {
     .expcon_div {
+        background-color: aqua;
+
         display: grid;
         grid-template-columns: 80% 20%; /* First column will be twice the width of the second */
         grid-template-rows: auto auto auto; /* Creates three rows, height defined by content */
     }
     .con_title_div {
+        background-color: aqua;
         grid-column: 1 / 2; /* div1 takes the first column */
         grid-row: 1 / 2; /* div1 takes the first row */
     }
-    con_title {
-        font-size: 2.5hh;
+    .con_title {
+        font-size: 2.5vw;
     } 
     .con_text_div {
         grid-column: 1 / -1; /* Spans across all columns on the second row */
