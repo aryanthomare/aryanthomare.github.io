@@ -51,11 +51,18 @@ const images = [
 shuffleArray(images);
 
 let currentIndex = 0;
+
 const imageElement = document.getElementById('carousel-image');
 const nextbutton = document.getElementById('arrow_right');
 const prevbutton = document.getElementById('arrow_left');
 
 const descriptionElement = document.getElementById('carousel-description');
+
+
+imageElement.src = images[currentIndex].src;
+descriptionElement.textContent = images[currentIndex].description;
+
+
 
 nextbutton.addEventListener('click', () => {
     console.log(currentIndex);
