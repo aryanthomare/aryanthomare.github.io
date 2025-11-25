@@ -1,27 +1,26 @@
 Personal Website
+================
 
-This repository contains the source code for my personal website. The site is built entirely with HTML and CSS, with no external frameworks or JavaScript dependencies. It serves as an online portfolio and central hub for my projects and contact information.
+This repository contains the source code for my personal website. It is built entirely using HTML and CSS, with no JavaScript, frameworks, or external build tools. The site serves as an online portfolio and provides basic information about me, my work, and how to get in contact.
 
 Overview
-
+--------
 The website includes the following sections:
 
-Home – A brief introduction and landing page
+- Home: Landing page and introduction
+- About: Information about my background and interests
+- Projects: A showcase of selected work
+- Contact: Methods to reach me or view my online profiles
 
-About – Information about me and my background
-
-Projects – A list of selected projects with descriptions
-
-Contact – Ways to reach me or view my online profiles
+The site is fully static and can be hosted on any platform that supports HTML and CSS.
 
 Technologies Used
+-----------------
+- HTML5 for structure and content
+- CSS3 for layout, styling, and responsiveness
+- No JavaScript required
+- No external libraries (unless noted within the source files)
 
-HTML5 for structure
-
-CSS3 for styling and layout
-
-No JavaScript
-
-No build tools
-
-No external libraries unless otherwise noted in the source code
+Usage
+-----
+You can open any of the HTML files directly in your browser. No installation or additional setup is required.
