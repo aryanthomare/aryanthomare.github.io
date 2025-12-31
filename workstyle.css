@@ -129,7 +129,13 @@
             background-color: #e8e8e8;
             margin: 2vh 0;
         }
-        
+        a.experience-item {
+            text-decoration: none;
+            color: inherit;
+            display: flex; /* or whatever display value your .experience-item originally had */
+            flex-direction: column; /* if needed */
+            width: 100%;
+        }
         @media (max-width: 1000px) {
             .text_area {
                 width: 90%;
