@@ -47,18 +47,19 @@ body {
 }
 
 .layout-one .Name {
+    display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     font-family: 'Fira Code';
     font-size: clamp(3rem, 8vw, 6.5rem);
-    text-align: left;
-    width: 0;
+    text-align: center;
+    width: 0ch;
     border-right: .12em solid orange;
     letter-spacing: -0.04em;
 
-    animation: 
-        name_ani 1s steps(13, end) forwards,
-        blink .8s infinite;
+    animation:
+        name_ani 1.8s steps(13, end) forwards,
+        blink .8s step-end infinite;
 
 
 }
@@ -67,14 +68,14 @@ body {
     to { border-color: orange; }
   }
 @keyframes name_ani {
-    from { width: 0 }
-    to { width: 100% }
+    from { width: 0ch }
+    to { width: 13ch }
 }
 
 
 .layout-one .name_div {
     display: inline-block;
-    align-self: flex-start;
+    align-self: center;
 }
 
 
@@ -86,9 +87,10 @@ body {
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    max-width: 38rem;
+    align-items: center;
+    max-width: 52rem;
     z-index: 1;
+    text-align: center;
 
 }
 
@@ -118,10 +120,10 @@ body {
 .layout-one .description {
     font-family: 'Fira Code';
     margin-top: 1.25rem;
-    text-align: left;
+    text-align: center;
     font-size: clamp(1rem, 1.6vw, 1.2rem);
     line-height: 1.7;
-    max-width: 34rem;
+    max-width: 40rem;
     color: #263241;
 
 }
@@ -140,6 +142,7 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
+    justify-content: center;
 }
 
 .layout-one .link.primary_link,
@@ -176,6 +179,7 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
+    justify-content: center;
 }
 
 .layout-one .highlight_card {
@@ -204,35 +208,6 @@ body {
     color: #182230;
     font-size: 0.95rem;
     line-height: 1.5;
-}
-
-.layout-one .visual_card {
-    width: min(34rem, 100%);
-    padding: 1.25rem;
-    border-radius: 1.75rem;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(17, 24, 39, 0.08);
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
-    backdrop-filter: blur(14px);
-    z-index: 1;
-}
-
-.layout-one .image_frame {
-    padding: 1rem;
-    border-radius: 1.4rem;
-    background: linear-gradient(145deg, rgba(17, 24, 39, 0.93), rgba(37, 99, 235, 0.8));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 24rem;
-}
-
-.layout-one .visual_caption {
-    margin-top: 1rem;
-    font-family: 'Space Grotesk', sans-serif;
-    color: #415066;
-    line-height: 1.6;
-    font-size: 0.98rem;
 }
 
 .layout-one .bottom_bar {
@@ -296,13 +271,7 @@ body {
 
 
 .layout-one .man{
-	width: min(100%, 24rem);
-	height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 1rem;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
-    transform: rotate(0deg);
+    display: none;
 
 	
 }
@@ -357,14 +326,6 @@ body {
 
     .layout-one .title_div {
         max-width: none;
-    }
-
-    .layout-one .visual_card {
-        width: 100%;
-    }
-
-    .layout-one .image_frame {
-        min-height: 18rem;
     }
 
     .layout-one .Name {
