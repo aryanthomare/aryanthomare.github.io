@@ -63,6 +63,10 @@
             padding: 2vh;
             border-left: 3px solid transparent;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
         }
         
         .experience-item:hover {
@@ -129,11 +133,7 @@
             background-color: #e8e8e8;
             margin: 2vh 0;
         }
-        a.experience-item {
-            text-decoration: none;
-            color: inherit;
-            display: flex; /* or whatever display value your .experience-item originally had */
-            flex-direction: column; /* if needed */
+        .experience-item-link {
             width: 100%;
         }
         @media (max-width: 1000px) {
