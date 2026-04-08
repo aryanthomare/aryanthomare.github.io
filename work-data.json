@@ -20,7 +20,7 @@
         {
           "title": "ATB Financial - Data Developer Student",
           "date": "2025",
-          "description": "Data developer internship with Data & AI Platforms team focusing on data platform development and AI integration. Working on data pipeline architecture, platform optimization, and supporting data-driven decision making across the organization. Collaborating with cross-functional teams to implement scalable data solutions and enhance platform capabilities.",
+          "description": "Data developer internship with the Data & AI Platforms team focusing on data platform development and AI integration. Working on data pipeline architecture, platform optimization, and supporting data-driven decision making across the organization. Collaborating with cross-functional teams to implement scalable data solutions and enhance platform capabilities.",
           "tags": [
             "Data Engineering",
             "AI Platforms",
@@ -65,7 +65,7 @@
         {
           "title": "Localy Mississauga - Founder",
           "date": "2022",
-          "description": "Developed mobile application with Python, Kivy, and SQLite for iOS and Android to support local businesses during COVID-19, in collaboration with Economic Development Council of Ontario. Created custom Linux and MacOS distributions for App Store deployment. Built and maintained database with user interface for business data interaction.",
+          "description": "Developed a mobile application with Python, Kivy, and SQLite for iOS and Android to support local businesses during COVID-19, in collaboration with the Economic Development Council of Ontario. Created custom Linux and macOS distributions for App Store deployment. Built and maintained a database with a user interface for business data interaction.",
           "tags": [
             "Mobile Development",
             "Python",
@@ -81,7 +81,7 @@
         {
           "title": "DrawBot - Autonomous Whiteboard Drawing Robot",
           "date": "2025",
-          "description": "Engineered wall-climbing robot that autonomously reproduces digital images on magnetic whiteboards. Led development of navigation and control systems including motor PID loops, encoder integration, and odometry sensor fusion. Implemented servo and marker control logic, integrated webcam-based computer vision for absolute positioning, and developed web-based debugging interface for manual control and telemetry. Collaborated on software integration using FreeRTOS task scheduling, coordinating real-time G-code execution, navigation state machines, and multi-subsystem synchronization across drive systems, drawing mechanisms, and localization sensors.",
+          "description": "Engineered a wall-climbing robot that autonomously reproduces digital images on magnetic whiteboards. Led development of navigation and control systems including motor PID loops, encoder integration, and odometry sensor fusion. Implemented servo and marker control logic, integrated webcam-based computer vision for absolute positioning, and developed a web-based debugging interface for manual control and telemetry. Collaborated on software integration using FreeRTOS task scheduling, coordinating real-time G-code execution, navigation state machines, and multi-subsystem synchronization across drive systems, drawing mechanisms, and localization sensors.",
           "tags": [
             "Embedded Systems",
             "FreeRTOS",
@@ -116,7 +116,7 @@
         {
           "title": "Linear Classifier / Perceptron Algorithm Visualizer",
           "date": "2025",
-          "description": "Python-based Matplotlib visualizer demonstrating the Perceptron Algorithm to find linear classifiers for linearly separable datasets.",
+          "description": "A Python-based Matplotlib visualizer demonstrating the Perceptron Algorithm to find linear classifiers for linearly separable datasets.",
           "tags": [
             "Python",
             "Data Visualization",
@@ -180,7 +180,7 @@
         {
           "title": "OpenCV Face Detection",
           "date": "2019",
-          "description": "Python software suite using OpenCV to detect faces from video files or live camera streams. Uses Haar Cascade Classifier to detect faces and draw bounding boxes. Suite includes programs to collect facial data for Haar Cascade Classifier training.",
+          "description": "A Python software suite using OpenCV to detect faces from video files or live camera streams. It uses a Haar Cascade Classifier to detect faces and draw bounding boxes. The suite also includes programs to collect facial data for Haar Cascade Classifier training.",
           "tags": [
             "OpenCV",
             "Face Detection",
@@ -200,7 +200,7 @@
         {
           "title": "Calculus II Answer Key Web Scraper",
           "date": "2019",
-          "description": "Program using Python and BeautifulSoup to scrape University of Michigan Calculus II websites for answer keys. Creates HTML webpage enabling quick searching of problems with links to official solutions.",
+          "description": "A program using Python and BeautifulSoup to scrape University of Michigan Calculus II websites for answer keys. It creates an HTML webpage enabling quick searching of problems with links to official solutions.",
           "tags": [
             "Web Scraping",
             "Data Mining",
@@ -210,7 +210,7 @@
         {
           "title": "Google Maps API Scraper",
           "date": "2018",
-          "description": "Python program using Google Maps API to scrape database of every city/town in Ontario, Canada. Uses restricted API calls to extract location names, attractions, and population data, storing in SQLite database. Enables searching for locations and displaying information in user-friendly manner.",
+          "description": "A Python program using the Google Maps API to scrape a database of every city and town in Ontario, Canada. It uses restricted API calls to extract location names, attractions, and population data, storing them in an SQLite database. It enables searching for locations and displaying information in a user-friendly manner.",
           "tags": [
             "API",
             "Databases",
