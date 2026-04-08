@@ -159,9 +159,9 @@ body {
 }
 
 .layout-one .link.primary_link {
-    background: #111827;
-    color: #f8fafc;
-    box-shadow: 0 12px 30px rgba(17, 24, 39, 0.18);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    color: #111827;
 }
 
 .layout-one .link.secondary_link {
@@ -174,6 +174,9 @@ body {
 .layout-one .link.secondary_link:hover {
     text-decoration: none;
     transform: translateY(-2px);
+    background: rgba(17, 24, 39, 0.06);
+    color: #111827;
+    box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
 }
 
 .layout-one .highlight_row {
