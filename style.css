@@ -47,29 +47,14 @@ body {
 }
 
 .layout-one .Name {
-    display: inline-block;
-    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
     white-space: nowrap;
     font-family: 'Fira Code';
     font-size: clamp(3rem, 8vw, 6.5rem);
     text-align: center;
-    width: 0ch;
-    border-right: .12em solid orange;
     letter-spacing: -0.04em;
-
-    animation:
-        name_ani 1.8s steps(13, end) forwards,
-        blink .8s step-end infinite;
-
-
-}
-@keyframes blink {
-    from { border-color: transparent }
-    to { border-color: orange; }
-  }
-@keyframes name_ani {
-    from { width: 0ch }
-    to { width: 13ch }
+    line-height: 1.1;
 }
 
 
@@ -87,12 +72,11 @@ body {
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     max-width: 52rem;
     z-index: 1;
     text-align: center;
-
 }
+
 
 .layout-one .centered_main_block {
     vertical-align: middle;
@@ -104,7 +88,23 @@ body {
     min-height: calc(100vh - 10vh);
     padding: 8vh 6vw 12vh;
     position: relative;
+}
 
+.layout-one .typing_cursor {
+    display: inline-block;
+    width: 0.12em;
+    height: 1em;
+    margin-left: 0.08em;
+    background: rgba(255, 159, 28, 0.82);
+    box-shadow: 0 0 10px rgba(255, 159, 28, 0.22);
+    vertical-align: middle;
+    animation: blink 1.25s ease-in-out infinite;
+    flex: 0 0 auto;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.35; }
 }
 
 
@@ -329,9 +329,7 @@ body {
     }
 
     .layout-one .Name {
-        width: auto;
-        animation: none;
-        border-right: none;
+        font-size: clamp(2.8rem, 12vw, 4.5rem);
     }
 
     .layout-one .description {

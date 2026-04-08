@@ -35,7 +35,7 @@
 			<div class="title_div">
 				<p class="eyebrow">Portfolio / Projects / Experience</p>
 				<div class="name_div">
-					<h1 class="Name">Aryan Thomare</h1>
+					<h1 class="Name"><span id="typed-name"></span><span class="typing_cursor" aria-hidden="true"></span></h1>
 				</div>
 				<p class="description">Computer Engineering student building software, ML, and systems projects with a focus on useful tools, clear interfaces, and measurable results.</p>
 
@@ -88,4 +88,25 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const nameElement = document.getElementById('typed-name');
+			const fullName = 'Aryan Thomare';
+			let currentIndex = 0;
+
+			function typeNextCharacter() {
+				if (!nameElement) {
+					return;
+				}
+
+				if (currentIndex <= fullName.length) {
+					nameElement.textContent = fullName.slice(0, currentIndex);
+					currentIndex += 1;
+					window.setTimeout(typeNextCharacter, 140);
+				}
+			}
+
+			typeNextCharacter();
+		});
+	</script>
 </body>
