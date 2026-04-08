@@ -1,9 +1,10 @@
 html,
 body {
     background:
-        radial-gradient(circle at top left, rgba(83, 145, 255, 0.18), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(255, 186, 73, 0.16), transparent 22%),
-        linear-gradient(180deg, #f7fbff 0%, #eef6fb 100%);
+        radial-gradient(circle at 14% 8%, rgba(151, 71, 255, 0.24), transparent 34%),
+        radial-gradient(circle at 88% 16%, rgba(113, 54, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 78% 86%, rgba(187, 107, 255, 0.14), transparent 32%),
+        linear-gradient(180deg, #07070a 0%, #030306 100%);
     height: 100%;
     overflow: hidden;
 }
@@ -18,7 +19,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(24, 39, 75, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(24, 39, 75, 0.035) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(170, 121, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(170, 121, 255, 0.08) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 85%);
     pointer-events: none;
@@ -37,7 +38,7 @@ body {
     left: -6rem;
     width: 14rem;
     height: 14rem;
-    background: rgba(72, 149, 239, 0.14);
+    background: rgba(151, 71, 255, 0.24);
 }
 
 .hero_backdrop_right {
@@ -45,7 +46,7 @@ body {
     right: -5rem;
     width: 12rem;
     height: 12rem;
-    background: rgba(255, 159, 28, 0.14);
+    background: rgba(113, 54, 255, 0.2);
 }
 
 .layout-one .Name {
@@ -57,6 +58,7 @@ body {
     text-align: center;
     letter-spacing: -0.04em;
     line-height: 1.1;
+    color: #f3ecff;
 }
 
 
@@ -97,8 +99,8 @@ body {
     width: 0.12em;
     height: 1em;
     margin-left: 0.08em;
-    background: rgba(255, 159, 28, 0.82);
-    box-shadow: 0 0 10px rgba(255, 159, 28, 0.22);
+    background: rgba(173, 115, 255, 0.88);
+    box-shadow: 0 0 10px rgba(173, 115, 255, 0.28);
     vertical-align: middle;
     animation: blink 1.25s ease-in-out infinite;
     flex: 0 0 auto;
@@ -126,7 +128,7 @@ body {
     font-size: clamp(1rem, 1.6vw, 1.2rem);
     line-height: 1.7;
     max-width: 40rem;
-    color: #263241;
+    color: #d1c7e6;
 
 }
 
@@ -135,7 +137,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.18em;
     font-size: 0.78rem;
-    color: #617086;
+    color: #b8a8de;
     margin-bottom: 1rem;
 }
 
@@ -159,24 +161,27 @@ body {
 }
 
 .layout-one .link.primary_link {
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(17, 24, 39, 0.08);
-    color: #111827;
+    background: linear-gradient(180deg, rgba(29, 18, 49, 0.92), rgba(18, 12, 33, 0.84));
+    border: 1px solid rgba(168, 120, 255, 0.28);
+    color: #e2ecff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.38);
 }
 
 .layout-one .link.secondary_link {
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(17, 24, 39, 0.08);
-    color: #111827;
+    background: linear-gradient(180deg, rgba(29, 18, 49, 0.92), rgba(18, 12, 33, 0.84));
+    border: 1px solid rgba(168, 120, 255, 0.28);
+    color: #e2ecff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.38);
 }
 
 .layout-one .link.primary_link:hover,
 .layout-one .link.secondary_link:hover {
     text-decoration: none;
     transform: translateY(-2px);
-    background: rgba(17, 24, 39, 0.06);
-    color: #111827;
-    box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+    background: linear-gradient(180deg, rgba(60, 34, 92, 0.95), rgba(46, 26, 74, 0.9));
+    border-color: rgba(173, 115, 255, 0.55);
+    color: #f5f8ff;
+    box-shadow: 0 12px 28px rgba(107, 52, 184, 0.28);
 }
 
 .layout-one .highlight_row {
@@ -191,9 +196,9 @@ body {
     min-width: 13rem;
     padding: 1rem 1.1rem;
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(17, 24, 39, 0.08);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    background: rgba(8, 8, 14, 0.78);
+    border: 1px solid rgba(168, 120, 255, 0.22);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
 }
 
@@ -203,14 +208,14 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.72rem;
-    color: #728095;
+    color: #b8a8de;
     margin-bottom: 0.45rem;
 }
 
 .layout-one .highlight_value {
     display: block;
     font-family: 'Fira Code';
-    color: #182230;
+    color: #d1c7e6;
     font-size: 0.95rem;
     line-height: 1.5;
 }
@@ -312,9 +317,13 @@ body {
 }
 
 .layout-one .bottom_bar .social_bar .linker:hover .logo{
-    fill:#7d7d7d;
+    fill: #b188ff;
     transition: 0.25s;
 
+}
+
+.layout-one .logo {
+    fill: #d9ccff;
 }
 
 @media (min-width: 1000px) {
