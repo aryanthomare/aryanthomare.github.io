@@ -8,6 +8,9 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 	</style>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+	</style>
 
 	<link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,29 +22,47 @@
 	<link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16" />
 	
 	<meta charset="utf-8">
+	<meta name="description" content="Aryan Thomare's personal website, portfolio, and project showcase.">
 </head>
 
 
 <body>
 	<div class="layout-one">
+		<div class="hero_backdrop hero_backdrop_left"></div>
+		<div class="hero_backdrop hero_backdrop_right"></div>
 
 		<div class="centered_main_block">
 			<div class="title_div">
-				<div class = name_div>
+				<p class="eyebrow">Portfolio / Projects / Experience</p>
+				<div class="name_div">
 					<h1 class="Name">Aryan Thomare</h1>
-					<!-- <h1 class="Name">Aryan Thomare<span style="font-size:small;">&nbsp;</span><span
-						class=blink>&nbsp;</span></h1> -->
 				</div>
-				<p class="description">A Computer Engineering student that makes things work sometimes.</p>
+				<p class="description">Computer Engineering student building software, ML, and systems projects with a focus on useful tools, clear interfaces, and measurable results.</p>
 
-				<a href="about.html" class="link">About</a>
+				<div class="cta_row">
+					<a href="about.html" class="link primary_link">About</a>
+					<a href="work.html" class="link secondary_link">Experience</a>
+					<a href="gallery.html" class="link secondary_link">Gallery</a>
+				</div>
 
-				<a href="work.html"   class="link">Experience</a>
-
-				<a href="gallery.html"  style="margin-bottom: 5vh;" class="link">Gallery</a>
-
+				<div class="highlight_row">
+					<div class="highlight_card">
+						<span class="highlight_label">Focus</span>
+						<span class="highlight_value">ML, embedded systems, finance tools</span>
+					</div>
+					<div class="highlight_card">
+						<span class="highlight_label">Now</span>
+						<span class="highlight_value">Building projects and internships</span>
+					</div>
+				</div>
 			</div>
-			<img class="man" src="assets/mandelbrot.png">
+
+			<div class="visual_card">
+				<div class="image_frame">
+					<img class="man" src="assets/mandelbrot.png" alt="Mandelbrot fractal artwork">
+				</div>
+				<div class="visual_caption">A snapshot of the kind of work I like building: technical, visual, and a little unusual.</div>
+			</div>
 
 		</div>
 
@@ -73,8 +94,5 @@
 
 			</div>
 		</div>
-		<!-- <div class="contact_div">
-				<a id="colo2" href="#projects" onclick="scrll1()" class="Contact">Contact</a>
-			</div> -->
 	</div>
 </body>
