@@ -6,7 +6,7 @@
       "items": [
         {
           "title": "Derivative Path Inc. - Machine Learning Intern",
-          "date": "2025",
+          "date": "2025 - 2026",
           "description": "Researching and prototyping neural network models to improve traditional quantitative methods in derivatives pricing and risk measurement. Building deep learning models (feedforward, CNNs, RNNs/LSTMs, transformers) to replace Monte Carlo based methods. Designing experiments comparing neural models against benchmark analytical solutions and traditional numerical methods. Developing data pipelines for generating training data from pricing engines and preprocessing financial time series. Analyzing accuracy, stability, computational performance, and potential latency improvements for complex derivatives and portfolio risk metrics.",
           "tags": [
             "Deep Learning",
@@ -80,7 +80,7 @@
       "items": [
         {
           "title": "End-to-End Handwriting Generation System",
-          "date": "2025",
+          "date": "2026",
           "description": "A comprehensive Machine Learning pipeline for synthesizing custom handwriting using a Conditional Variational Autoencoder (CVAE). The system manages the full workflow, encompassing data collection via web interfaces, structured data preparation, and model training. Core components include a PyTorch-based CVAE model, latent space sampling for inference, and utilities for data preprocessing and graph visualization. This architecture demonstrates end-to-end deep learning deployment for generative tasks.",
           "tags": [
             "PyTorch",
@@ -94,7 +94,7 @@
         },
         {
           "title": "AI-Powered Codebase Documentation System",
-          "date": "2025",
+          "date": "2026",
           "description": "An automated, two-stage pipeline designed to generate comprehensive technical documentation from a codebase. The system first uses Python CLI tools to discover and filter source files. The core module analyzes the entire codebase, managing context window limitations while interfacing with a local Large Language Model (Ollama). It synthesizes structured, high-fidelity documentation using external prompt templates, ensuring scalable documentation generation for complex, multi-file projects.",
           "tags": [
             "Python",
