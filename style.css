@@ -86,11 +86,11 @@ body {
     vertical-align: middle;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 4rem;
     flex-wrap: wrap;
     min-height: calc(100vh - 10vh);
-    padding: 8vh 6vw 12vh;
+    padding: 6vh 6vw 12vh;
     position: relative;
 }
 
