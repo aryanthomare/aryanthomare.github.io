@@ -1,4 +1,4 @@
-{
+window.WORK_DATA = {
     "pageTitle":  "Experiences",
     "sections":  [
                      {
@@ -255,4 +255,4 @@
                                    ]
                      }
                  ]
-}
+};

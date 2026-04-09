@@ -6,13 +6,11 @@ async function loadWorkContent() {
     }
 
     try {
-        const response = await fetch('work-data.json');
+        const data = window.WORK_DATA;
 
-        if (!response.ok) {
-            throw new Error('Unable to load work data.');
+        if (!data || !Array.isArray(data.sections)) {
+            throw new Error('Work data is missing or invalid.');
         }
-
-        const data = await response.json();
 
         document.title = data.pageTitle || document.title;
 
