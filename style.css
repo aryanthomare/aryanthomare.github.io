@@ -90,7 +90,7 @@ body {
     gap: 4rem;
     flex-wrap: wrap;
     min-height: calc(100vh - 10vh);
-    padding: 6vh 6vw 12vh;
+    padding: 15% 6vw 12vh;
     position: relative;
 }
 
