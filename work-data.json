@@ -77,36 +77,8 @@
     },
     {
       "title": "Projects",
-      "items": [
-        {
-          "title": "Codebase Documentation & Summarization Pipeline",
-          "date": "2025",
-          "description": "A comprehensive, multi-stage CI/CD workflow designed to automate the generation of structured documentation and metadata from disparate codebases. The system operates by syncing projects, triggering LLM-powered analysis (via Ollama) when metadata is incomplete. Core modules include recursive file scanning, codebase summarization, and centralized data aggregation. The entire flow culminates in populating a master 'work-data.json' manifest, providing a complete inventory of analyzed projects.",
-          "tags": [
-            "Python",
-            "CI/CD",
-            "LLM Integration",
-            "Data Pipeline",
-            "Code Analysis",
-            "Automation"
-          ],
-          "link": "N/A"
-        },
-        {
-          "title": "Automated Codebase Documentation and Publishing Pipeline",
-          "date": "2025",
-          "description": "An integrated, multi-stage Python CLI tool automating technical documentation. The pipeline first scans source code assets to discover files. It then utilizes local Large Language Models (via Ollama) to generate structured metadata summaries for complex codebases. The final stage orchestrates publishing, aggregating all project information into a central `work-data.json` repository. This system manages the full workflow from raw code input to structured documentation output.",
-          "tags": [
-            "Python",
-            "CLI Tools",
-            "LLM Integration",
-            "Data Orchestration",
-            "NLP",
-            "Automation"
-          ],
-          "link": "N/A"
-        },
-        {
+      "items": 
+      {
           "title": "End-to-End Handwriting Generation System",
           "date": "2026",
           "description": "A comprehensive Machine Learning pipeline for synthesizing custom handwriting using a Conditional Variational Autoencoder (CVAE). The system manages the full workflow, encompassing data collection via web interfaces, structured data preparation, and model training. Core components include a PyTorch-based CVAE model, latent space sampling for inference, and utilities for data preprocessing and graph visualization. This architecture demonstrates end-to-end deep learning deployment for generative tasks.",
