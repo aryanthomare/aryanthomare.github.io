@@ -90,7 +90,7 @@
                                                         "Data Pipeline",
                                                         "Machine Learning"
                                                     ],
-                                           "link":  "N/A"
+                                           "link":  "https://github.com/aryanthomare/HandwritingGenerator"
                                        },
                                        {
                                            "title":  "AI-Powered Codebase Documentation System",
@@ -103,7 +103,7 @@
                                                         "CLI Tools",
                                                         "Ollama"
                                                     ],
-                                           "link":  "N/A"
+                                           "link":  "https://github.com/aryanthomare/ProjectSummarizer"
                                        },
                                        {
                                            "title":  "DrawBot - Autonomous Whiteboard Drawing Robot",
