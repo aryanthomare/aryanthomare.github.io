@@ -79,6 +79,33 @@
       "title": "Projects",
       "items": [
         {
+          "title": "End-to-End Handwriting Generation System",
+          "date": "2025",
+          "description": "A comprehensive Machine Learning pipeline for synthesizing custom handwriting using a Conditional Variational Autoencoder (CVAE). The system manages the full workflow, encompassing data collection via web interfaces, structured data preparation, and model training. Core components include a PyTorch-based CVAE model, latent space sampling for inference, and utilities for data preprocessing and graph visualization. This architecture demonstrates end-to-end deep learning deployment for generative tasks.",
+          "tags": [
+            "PyTorch",
+            "CVAE",
+            "Deep Learning",
+            "Handwriting Synthesis",
+            "Data Pipeline",
+            "Machine Learning"
+          ],
+          "link": "N/A"
+        },
+        {
+          "title": "AI-Powered Codebase Documentation System",
+          "date": "2025",
+          "description": "An automated, two-stage pipeline designed to generate comprehensive technical documentation from a codebase. The system first uses Python CLI tools to discover and filter source files. The core module analyzes the entire codebase, managing context window limitations while interfacing with a local Large Language Model (Ollama). It synthesizes structured, high-fidelity documentation using external prompt templates, ensuring scalable documentation generation for complex, multi-file projects.",
+          "tags": [
+            "Python",
+            "LLMs",
+            "Code Analysis",
+            "CLI Tools",
+            "Ollama"
+          ],
+          "link": "N/A"
+        },
+        {
           "title": "DrawBot - Autonomous Whiteboard Drawing Robot",
           "date": "2025",
           "description": "Engineered a wall-climbing robot that autonomously reproduces digital images on magnetic whiteboards. Led development of navigation and control systems including motor PID loops, encoder integration, and odometry sensor fusion. Implemented servo and marker control logic, integrated webcam-based computer vision for absolute positioning, and developed a web-based debugging interface for manual control and telemetry. Collaborated on software integration using FreeRTOS task scheduling, coordinating real-time G-code execution, navigation state machines, and multi-subsystem synchronization across drive systems, drawing mechanisms, and localization sensors.",
