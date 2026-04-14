@@ -79,14 +79,13 @@
       "title": "Projects",
       "items": [
         {
-          "title": "Gmail Tool Ranking & TypeScript Build Config",
-          "date": "N/A",
-          "description": "This repository implements a local model for ranking Gmail tools by scoring request tokens, with unit tests in pytest. It also contains a TypeScript build configuration updated to CommonJS for Node compatibility, resolving import errors. The codebase includes the ranking logic, test harness, and build settings, enabling easy integration and testing of tool selection workflows in a Gmail\u2011automation context.",
+          "title": "Gmail MCP Tool Planner",
+          "date": "2026",
+          "description": "The Gmail MCP Tool Planner is a hybrid tool\u2011chain designed to automate Gmail tasks by first discovering available Gmail MCP (Mail Client Platform) tools and then ranking the most relevant ones for a user\u2019s request. It uses a Node.js entry point that queries the @gongrzhe/server-gmail-autoauth-mcp server to list tools, and a local language model (LLM) to evaluate and rank those tools. The planner outputs the selected tool context and a generated prompt, which can be sent to a local Ollama instance via the OpenAI API format for further processing. The repository includes Python scripts for listing tools and interfacing with Ollama, along with environment\u2011variable overrides to switch between local and cloud LLMs. Google OAuth credentials are required for Gmail actions, and the setup intentionally separates planning from execution, allowing developers to extend the system with custom tool\u2011execution logic.",
           "tags": [
-            "Python",
-            "TypeScript",
-            "Testing",
-            "Build Configuration"
+            "MCP",
+            "LLM",
+            "ToolPlanner"
           ],
           "link": "N/A"
         },
