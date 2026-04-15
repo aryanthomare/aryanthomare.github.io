@@ -12,15 +12,35 @@ async function loadWorkContent() {
             throw new Error(`Unable to fetch work-data.json: ${response.status}`);
         }
 
-        const data = await response.json();
+        const rawData = await response.json();
 
-        if (!data || !Array.isArray(data.sections)) {
-            throw new Error('Work data is missing or invalid.');
+        // Support common wrappers so small schema changes do not break the page.
+        const dataCandidates = [
+            rawData,
+            rawData?.data,
+            rawData?.default,
+            rawData?.workData,
+            rawData?.WORK_DATA,
+            window.WORK_DATA
+        ];
+
+        const data = dataCandidates.find(
+            (candidate) => candidate && Array.isArray(candidate.sections)
+        );
+
+        if (!data) {
+            const topLevelKeys = rawData && typeof rawData === 'object' ? Object.keys(rawData).join(', ') : String(rawData);
+            throw new Error(`Work data is missing or invalid. Expected an object with a sections array. Received keys: ${topLevelKeys}`);
         }
 
         document.title = data.pageTitle || document.title;
+        sectionsContainer.textContent = '';
 
         data.sections.forEach((section) => {
+            if (!section || !Array.isArray(section.items)) {
+                return;
+            }
+
             const sectionWrapper = document.createElement('section');
 
             const subtitleWrapper = document.createElement('div');
@@ -66,7 +86,7 @@ async function loadWorkContent() {
                 const tags = document.createElement('div');
                 tags.className = 'tags';
 
-                item.tags.forEach((tagText) => {
+                (item.tags || []).forEach((tagText) => {
                     const tag = document.createElement('span');
                     tag.className = 'tag';
                     tag.textContent = tagText;
