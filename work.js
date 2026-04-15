@@ -6,7 +6,13 @@ async function loadWorkContent() {
     }
 
     try {
-        const data = window.WORK_DATA;
+        const response = await fetch('work-data.json', { cache: 'no-cache' });
+
+        if (!response.ok) {
+            throw new Error(`Unable to fetch work-data.json: ${response.status}`);
+        }
+
+        const data = await response.json();
 
         if (!data || !Array.isArray(data.sections)) {
             throw new Error('Work data is missing or invalid.');
