@@ -18,7 +18,7 @@ window.WORK_DATA = {
                                                     ]
                                        },
                                        {
-                                           "title":  "ATB Financial - Data Developer Student",
+                                           "title":  "ATB Financial - Data and A.I. Developer Intern",
                                            "date":  "2025",
                                            "description":  "Data developer internship with the Data \u0026 AI Platforms team focusing on data platform development and AI integration. Working on data pipeline architecture, platform optimization, and supporting data-driven decision making across the organization. Collaborating with cross-functional teams to implement scalable data solutions and enhance platform capabilities.",
                                            "tags":  [
