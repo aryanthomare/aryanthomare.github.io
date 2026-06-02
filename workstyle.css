@@ -28,28 +28,30 @@ body {
 
 body {
     background:
-        radial-gradient(circle at 13% 10%, rgba(151, 71, 255, 0.22), transparent 34%),
-        radial-gradient(circle at 88% 16%, rgba(113, 54, 255, 0.16), transparent 30%),
-        radial-gradient(circle at 78% 84%, rgba(187, 107, 255, 0.14), transparent 30%),
-        linear-gradient(180deg, var(--ink-900) 0%, var(--ink-950) 100%);
+        radial-gradient(ellipse 72% 52% at 10%  6%,  rgba(108, 33, 238, 0.36), transparent),
+        radial-gradient(ellipse 58% 46% at 93%  12%, rgba(58,  18, 196, 0.26), transparent),
+        radial-gradient(ellipse 64% 52% at 68%  92%, rgba(138, 48, 252, 0.22), transparent),
+        radial-gradient(ellipse 48% 42% at 20%  74%, rgba(32,  10, 112, 0.24), transparent),
+        linear-gradient(170deg, #0c0818 0%, #040308 52%, #030211 100%);
     color: var(--mist-200);
     font-family: 'Space Grotesk', sans-serif;
     overflow-x: hidden;
 }
 
-body::before {
-    content: '';
+#bg-canvas {
     position: fixed;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(170, 121, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(170, 121, 255, 0.07) 1px, transparent 1px);
-    background-size: 52px 52px;
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 90%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
     pointer-events: none;
+    display: block;
 }
 
 .page_shell {
+    position: relative;
+    z-index: 1;
     width: min(1200px, calc(100% - 2.4rem));
     margin: 0 auto;
     padding: 1.2rem 0 2rem;
