@@ -1,8 +1,11 @@
 (function () {
-    const canvas = document.getElementById('bg-canvas');
-    if (!canvas) return;
-
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'bg-canvas';
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.style.cssText = 'position:fixed;top:0;left:0;pointer-events:none;z-index:0;';
+    document.body.insertBefore(canvas, document.body.firstChild);
 
     const ctx = canvas.getContext('2d');
 
