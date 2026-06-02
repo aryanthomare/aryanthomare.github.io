@@ -82,9 +82,9 @@
         [],               // 15 1111
     ];
 
-    const CELL   = 16;    // grid cell size in pixels
-    const LEVELS = 9;     // number of contour threshold levels
-    const SCALE  = 0.0022; // noise coordinate scale
+    const CELL   = 18;    // grid cell size in pixels
+    const LEVELS = 10;    // number of contour threshold levels
+    const SCALE  = 0.003; // noise coordinate scale — larger = bigger terrain features
 
     let W, H, cols, rows, field;
     const ePts = new Float32Array(8); // reusable [x0,y0, x1,y1, x2,y2, x3,y3] edge buffer
@@ -127,10 +127,10 @@
 
         // Draw contour lines for each threshold level
         for (let li = 0; li < LEVELS; li++) {
-            const th          = -0.42 + (li / (LEVELS - 1)) * 0.84;
+            const th          = -0.40 + (li / (LEVELS - 1)) * 0.80;
             const centrality  = 1 - Math.abs((li / (LEVELS - 1)) - 0.5) * 2;
-            ctx.strokeStyle   = `rgba(151, 71, 255, ${(0.05 + centrality * 0.07).toFixed(3)})`;
-            ctx.lineWidth     = 0.65 + centrality * 0.5;
+            ctx.strokeStyle   = `rgba(151, 71, 255, ${(0.13 + centrality * 0.14).toFixed(3)})`;
+            ctx.lineWidth     = 1.0 + centrality * 0.8;
             ctx.beginPath();
 
             for (let r = 0; r < rows - 1; r++) {
