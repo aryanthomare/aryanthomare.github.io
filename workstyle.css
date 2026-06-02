@@ -118,7 +118,8 @@ main {
 }
 
 .hero_section,
-.work_section {
+.work_section,
+.site_footer {
     border-radius: 28px;
     border: 1px solid rgba(168, 120, 255, 0.18);
     box-shadow: 0 0 0 1px rgba(26, 16, 43, 0.42);
@@ -297,6 +298,52 @@ main {
     cursor: pointer;
 }
 
+.site_footer {
+    padding: 1rem 1rem 1.1rem;
+    background: rgba(8, 8, 14, 0.82);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer_copy {
+    margin: 0;
+    color: var(--mist-400);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.social_bar {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.icon_link {
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: var(--mist-300);
+    background: rgba(13, 10, 22, 0.86);
+    box-shadow: 0 0 0 1px rgba(168, 120, 255, 0.22);
+    transition: transform 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+
+.icon_link svg {
+    width: 1.02rem;
+    height: 1.02rem;
+}
+
+.icon_link:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 1px rgba(173, 115, 255, 0.56);
+}
+
 .reveal {
     animation: rise 680ms ease both;
 }
@@ -335,8 +382,14 @@ main {
     }
 
     .hero_section,
-    .work_section {
+    .work_section,
+    .site_footer {
         border-radius: 20px;
+    }
+
+    .site_footer {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .experience-item {

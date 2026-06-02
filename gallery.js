@@ -65,23 +65,14 @@ descriptionElement.textContent = images[currentIndex].description;
 
 
 nextbutton.addEventListener('click', () => {
-    console.log(currentIndex);
-
     currentIndex = (currentIndex + 1) % images.length;
     imageElement.src = images[currentIndex].src;
     descriptionElement.textContent = images[currentIndex].description;
-}
-);
+});
 
 prevbutton.addEventListener('click', () => {
-    console.log("prev",currentIndex);
-
     currentIndex = (currentIndex - 1 + images.length) % images.length;
-
-    console.log("after",currentIndex);
-
     imageElement.src = images[currentIndex].src;
     descriptionElement.textContent = images[currentIndex].description;
-}
-);
+});
 
