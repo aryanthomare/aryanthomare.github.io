@@ -1,3 +1,66 @@
+// Work data lives in Cloud Firestore (document site/work), fetched through the
+// Firestore REST API so the page does not need the Firebase JS SDK. The local
+// work-data.json is kept as a fallback if Firestore is unreachable.
+
+const WORK_DOC_PATH = 'site/work';
+
+function decodeFirestoreValue(value) {
+    if ('stringValue' in value) return value.stringValue;
+    if ('integerValue' in value) return Number(value.integerValue);
+    if ('doubleValue' in value) return value.doubleValue;
+    if ('booleanValue' in value) return value.booleanValue;
+    if ('nullValue' in value) return null;
+    if ('timestampValue' in value) return value.timestampValue;
+    if ('arrayValue' in value) return (value.arrayValue.values || []).map(decodeFirestoreValue);
+    if ('mapValue' in value) return decodeFirestoreFields(value.mapValue.fields);
+    return null;
+}
+
+function decodeFirestoreFields(fields) {
+    const result = {};
+    Object.entries(fields || {}).forEach(([key, value]) => {
+        result[key] = decodeFirestoreValue(value);
+    });
+    return result;
+}
+
+async function fetchWorkDataFromFirestore() {
+    const config = window.FIREBASE_CONFIG;
+
+    if (!config || !config.projectId || config.projectId.startsWith('YOUR_')) {
+        throw new Error('Firebase is not configured. Fill in firebase-config.js.');
+    }
+
+    const url = `https://firestore.googleapis.com/v1/projects/${config.projectId}/databases/(default)/documents/${WORK_DOC_PATH}?key=${config.apiKey}`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`Unable to fetch work data from Firestore: ${response.status}`);
+    }
+
+    const doc = await response.json();
+    return decodeFirestoreFields(doc.fields);
+}
+
+async function fetchWorkDataFallback() {
+    const response = await fetch('work-data.json', { cache: 'no-cache' });
+
+    if (!response.ok) {
+        throw new Error(`Unable to fetch work-data.json: ${response.status}`);
+    }
+
+    return response.json();
+}
+
+async function loadWorkData() {
+    try {
+        return await fetchWorkDataFromFirestore();
+    } catch (firestoreError) {
+        console.warn('Falling back to local work-data.json:', firestoreError);
+        return fetchWorkDataFallback();
+    }
+}
+
 async function loadWorkContent() {
     const sectionsContainer = document.getElementById('work-sections');
 
@@ -6,13 +69,7 @@ async function loadWorkContent() {
     }
 
     try {
-        const response = await fetch('work-data.json', { cache: 'no-cache' });
-
-        if (!response.ok) {
-            throw new Error(`Unable to fetch work-data.json: ${response.status}`);
-        }
-
-        const rawData = await response.json();
+        const rawData = await loadWorkData();
 
         // Support common wrappers so small schema changes do not break the page.
         const dataCandidates = [
