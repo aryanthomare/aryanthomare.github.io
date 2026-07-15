@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="background.js" defer></script>
-	<script src="scope.js" defer></script>
+	<script src="lab.js" defer></script>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 
 		<main>
 			<section class="hero_section">
-				<p class="eyebrow">// identification</p>
+				<p class="eyebrow"># identification</p>
 				<h1 class="hero_title"><span id="typed-name"></span><span class="typing_cursor" aria-hidden="true"></span></h1>
 				<p class="hero_description">Computer Engineering student building software, ML, and systems projects with a focus on impactful tools, clear results, and creative approaches.</p>
 				<div class="cta_row">
@@ -34,45 +34,38 @@
 				</div>
 			</section>
 
-			<section class="instrument" aria-label="I2C signal preview">
+			<section class="instrument" aria-label="Training run monitor">
 				<div class="scope_head">
-					<p class="scope_model">AT-87 Scope</p>
-					<p class="scope_label">CH1 &mdash; SCL</p>
-					<p class="scope_label ch2">CH2 &mdash; SDA</p>
-					<p class="scope_meta">I&sup2;C @ 100 kHz &middot; decode: ASCII</p>
+					<p class="scope_model">train.py &mdash; portfolio-v3</p>
+					<p class="scope_label">train</p>
+					<p class="scope_label ch2">val</p>
+					<p class="scope_meta"><span id="run-step">step 0</span> &middot; <span id="run-loss">loss &mdash;</span> &middot; lr 3e-4</p>
 				</div>
 				<div class="screen">
-					<canvas id="scope-canvas" aria-hidden="true"></canvas>
+					<canvas id="loss-canvas" aria-hidden="true"></canvas>
 				</div>
 				<div class="readout_row">
 					<p><span>Focus</span>Machine learning &middot; Software &middot; Embedded systems</p>
+					<p><span>Stack</span>PyTorch &middot; Python &middot; C++</p>
 					<p><span>Now</span>Building unique projects &amp; shipping practical tools</p>
-				</div>
-				<div class="jack_row" aria-hidden="true">
-					<div class="jack_unit"><span class="jack jack_ch1"></span><p>P1</p></div>
-					<div class="jack_unit"><span class="jack jack_ch2"></span><p>P2</p></div>
-					<div class="jack_unit"><span class="jack jack_ch3"></span><p>P3</p></div>
 				</div>
 			</section>
 
-			<div class="probe_harness" aria-hidden="true">
-				<canvas id="probe-canvas"></canvas>
-			</div>
-
 			<section class="index_section">
+				<p class="eyebrow"># experiments</p>
 				<div class="channel_grid">
 					<a class="channel_card ch1_card" href="work.html">
-						<p class="channel_tag">Probe 1</p>
+						<p class="channel_tag">exp-01 &middot; logged</p>
 						<h3>Experience</h3>
 						<p>Roles, projects, and outcomes with details on impact and implementation.</p>
 					</a>
 					<a class="channel_card ch2_card" href="gallery.html">
-						<p class="channel_tag">Probe 2</p>
+						<p class="channel_tag">exp-02 &middot; rendered</p>
 						<h3>Gallery</h3>
 						<p>A visual walk through builds, snapshots, and generative experiments.</p>
 					</a>
 					<a class="channel_card ch3_card" href="about.html">
-						<p class="channel_tag">Probe 3</p>
+						<p class="channel_tag">exp-03 &middot; running</p>
 						<h3>About</h3>
 						<p>Background, interests, and what I am currently curious about.</p>
 					</a>
@@ -81,7 +74,7 @@
 		</main>
 
 		<footer class="site_footer">
-			<p class="eyebrow">// connect</p>
+			<p class="eyebrow"># connect</p>
 			<div class="legend_links">
 				<a class="legend_row" href="https://github.com/aryanthomare" title="Github" aria-label="Github">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -102,7 +95,7 @@
 					<span>Instagram</span>
 				</a>
 			</div>
-			<p class="foot_note">&copy; 2026 Aryan Thomare &mdash; background contours: live Perlin fBm, marching squares</p>
+			<p class="foot_note">&copy; 2026 Aryan Thomare &mdash; contours: live Perlin fBm &middot; loss curves simulated, no GPUs harmed</p>
 		</footer>
 	</div>
 
