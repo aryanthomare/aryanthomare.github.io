@@ -61,6 +61,120 @@ async function loadWorkData() {
     }
 }
 
+// Per-section run-log identity: id prefix, plural noun for the section header,
+// and the channel color the section's ids/accents use.
+const SECTION_META = [
+    { prefix: 'run', noun: 'runs', color: 'var(--ch1)' },
+    { prefix: 'exp', noun: 'experiments', color: 'var(--ch2)' }
+];
+const FALLBACK_META = { prefix: 'log', noun: 'entries', color: 'var(--ch3)' };
+
+function buildTagChips(tags) {
+    const wrap = document.createElement('div');
+    wrap.className = 'run_tags';
+    tags.forEach((tagText) => {
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = tagText;
+        wrap.appendChild(tag);
+    });
+    return wrap;
+}
+
+function buildRunRow(item, id, openByDefault) {
+    const row = document.createElement('details');
+    row.className = 'run_row';
+    if (openByDefault) row.open = true;
+
+    const summary = document.createElement('summary');
+
+    const runId = document.createElement('span');
+    runId.className = 'run_id';
+    runId.textContent = id;
+
+    const main = document.createElement('div');
+    main.className = 'run_main';
+
+    const title = document.createElement('h3');
+    title.className = 'run_title';
+    title.textContent = item.title;
+    main.appendChild(title);
+
+    const previewTags = (item.tags || []).slice(0, 3);
+    if (previewTags.length) {
+        const preview = buildTagChips(previewTags);
+        const extra = (item.tags || []).length - previewTags.length;
+        if (extra > 0) {
+            const more = document.createElement('span');
+            more.className = 'tag';
+            more.textContent = `+${extra}`;
+            preview.appendChild(more);
+        }
+        main.appendChild(preview);
+    }
+
+    const date = document.createElement('span');
+    date.className = 'run_date';
+    date.textContent = item.date;
+
+    const toggle = document.createElement('span');
+    toggle.className = 'run_toggle';
+    toggle.setAttribute('aria-hidden', 'true');
+    toggle.textContent = '+';
+
+    summary.appendChild(runId);
+    summary.appendChild(main);
+    summary.appendChild(date);
+    summary.appendChild(toggle);
+    row.appendChild(summary);
+
+    const body = document.createElement('div');
+    body.className = 'run_body';
+
+    const description = document.createElement('p');
+    description.className = 'run_desc';
+    description.textContent = item.description;
+    body.appendChild(description);
+
+    if ((item.tags || []).length) {
+        body.appendChild(buildTagChips(item.tags));
+    }
+
+    if (item.link) {
+        const link = document.createElement('a');
+        link.className = 'run_link';
+        link.href = item.link;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'view repo →';
+        body.appendChild(link);
+    }
+
+    row.appendChild(body);
+    return row;
+}
+
+function renderStatsLine(sections) {
+    const statsElement = document.getElementById('work-stats');
+    if (!statsElement) return;
+
+    const counts = sections.map((section, index) => {
+        const meta = SECTION_META[index] || FALLBACK_META;
+        return `${meta.noun}: ${section.items.length}`;
+    });
+
+    const years = sections
+        .flatMap((section) => section.items)
+        .flatMap((item) => String(item.date || '').match(/\d{4}/g) || [])
+        .map(Number);
+
+    if (years.length) {
+        counts.push(`span: ${Math.min(...years)}–${Math.max(...years)}`);
+    }
+
+    statsElement.textContent = counts.join(' · ');
+}
+
 async function loadWorkContent() {
     const sectionsContainer = document.getElementById('work-sections');
 
@@ -93,78 +207,44 @@ async function loadWorkContent() {
         document.title = data.pageTitle || document.title;
         sectionsContainer.textContent = '';
 
-        data.sections.forEach((section) => {
-            if (!section || !Array.isArray(section.items)) {
-                return;
-            }
+        const validSections = data.sections.filter(
+            (section) => section && Array.isArray(section.items)
+        );
+
+        renderStatsLine(validSections);
+
+        validSections.forEach((section, sectionIndex) => {
+            const meta = SECTION_META[sectionIndex] || FALLBACK_META;
 
             const sectionWrapper = document.createElement('section');
+            sectionWrapper.className = 'log_section';
+            sectionWrapper.style.setProperty('--sec-ch', meta.color);
 
-            const subtitleWrapper = document.createElement('div');
-            subtitleWrapper.className = 'subtitle_div';
+            const heading = document.createElement('h2');
+            heading.className = 'log_head';
+            heading.textContent = `# ${section.title.toLowerCase()} — ${section.items.length} ${meta.noun}`;
+            sectionWrapper.appendChild(heading);
 
-            const subtitle = document.createElement('h2');
-            subtitle.className = 'subtitle';
-            subtitle.textContent = section.title;
+            const list = document.createElement('div');
+            list.className = 'log_list';
 
-            subtitleWrapper.appendChild(subtitle);
-            sectionWrapper.appendChild(subtitleWrapper);
-
-            section.items.forEach((item) => {
-                const itemElement = item.link ? document.createElement('a') : document.createElement('div');
-
-                itemElement.className = 'experience-item';
-
-                if (item.link) {
-                    itemElement.href = item.link;
-                    itemElement.target = '_blank';
-                    itemElement.rel = 'noopener noreferrer';
-                    itemElement.classList.add('experience-item-link');
-                }
-
-                const header = document.createElement('div');
-                header.className = 'exp-header';
-
-                const title = document.createElement('h3');
-                title.className = 'exp-title';
-                title.textContent = item.title;
-
-                const date = document.createElement('span');
-                date.className = 'exp-date';
-                date.textContent = item.date;
-
-                header.appendChild(title);
-                header.appendChild(date);
-
-                const description = document.createElement('p');
-                description.className = 'exp-description';
-                description.textContent = item.description;
-
-                const tags = document.createElement('div');
-                tags.className = 'tags';
-
-                (item.tags || []).forEach((tagText) => {
-                    const tag = document.createElement('span');
-                    tag.className = 'tag';
-                    tag.textContent = tagText;
-                    tags.appendChild(tag);
-                });
-
-                const divider = document.createElement('div');
-                divider.className = 'divider';
-
-                itemElement.appendChild(header);
-                itemElement.appendChild(description);
-                itemElement.appendChild(tags);
-                itemElement.appendChild(divider);
-
-                sectionWrapper.appendChild(itemElement);
+            // Newest entries sit at the top of the data, so ids count down —
+            // a run history with the latest run first, pre-expanded.
+            section.items.forEach((item, itemIndex) => {
+                const id = `${meta.prefix}-${String(section.items.length - itemIndex).padStart(2, '0')}`;
+                const openByDefault = sectionIndex === 0 && itemIndex === 0;
+                list.appendChild(buildRunRow(item, id, openByDefault));
             });
 
+            sectionWrapper.appendChild(list);
             sectionsContainer.appendChild(sectionWrapper);
         });
     } catch (error) {
-        sectionsContainer.textContent = 'Unable to load work content.';
+        const message = document.createElement('p');
+        message.className = 'log_error';
+        message.textContent = 'Unable to load work content.';
+        sectionsContainer.textContent = '';
+        sectionsContainer.appendChild(message);
         console.error(error);
     }
 }
