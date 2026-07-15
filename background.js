@@ -1,5 +1,5 @@
 (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const canvas = document.createElement('canvas');
     canvas.id = 'bg-canvas';
@@ -8,6 +8,13 @@
     document.body.insertBefore(canvas, document.body.firstChild);
 
     const ctx = canvas.getContext('2d');
+
+    // Ink color comes from the page's stylesheet so each page can theme the
+    // contours; pages without --contour-rgb keep the original violet.
+    const rootStyle = getComputedStyle(document.documentElement);
+    const INK  = (rootStyle.getPropertyValue('--contour-rgb') || '').trim() || '151, 71, 255';
+    const HALO = (rootStyle.getPropertyValue('--paper-rgb') || '').trim() || '255, 255, 255';
+    const LABELED = document.body.dataset.contours === 'labeled';
 
     // --- Perlin gradient noise ---
     const PERM = new Uint8Array(512);
@@ -85,6 +92,7 @@
     const CELL   = 18;    // grid cell size in pixels
     const LEVELS = 10;    // number of contour threshold levels
     const SCALE  = 0.003; // noise coordinate scale — larger = bigger terrain features
+    const LABEL_SPACING = 260; // px between elevation label anchor points
 
     let W, H, cols, rows, field;
     const ePts = new Float32Array(8); // reusable [x0,y0, x1,y1, x2,y2, x3,y3] edge buffer
@@ -110,11 +118,45 @@
         s = (th - v01) / (v00 - v01); ePts[6] = x0;             ePts[7] = y0 + CELL - s * CELL;
     }
 
-    function draw(ts) {
-        requestAnimationFrame(draw);
+    // Elevation figures set along the contours, like a printed quad sheet.
+    // Anchors sit on a fixed staggered grid; each takes the local field value
+    // as its elevation and aligns with the contour tangent (perpendicular to
+    // the field gradient). Flat spots are skipped so no figure floats in blank
+    // paper.
+    function drawElevationLabels(t) {
+        ctx.font = '10px "IBM Plex Mono", ui-monospace, monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.lineWidth = 3;
+        ctx.lineJoin = 'round';
 
-        const t = ts * 0.000025; // drift speed — full pattern cycle ~2 minutes
+        for (let row = 0, y = LABEL_SPACING * 0.55; y < H; row++, y += LABEL_SPACING) {
+            const xOff = row % 2 ? LABEL_SPACING * 0.5 : 0;
+            for (let x = LABEL_SPACING * 0.45 + xOff; x < W; x += LABEL_SPACING) {
+                const v  = fbm(x * SCALE, y * SCALE, t);
+                const gx = fbm((x + 8) * SCALE, y * SCALE, t) - fbm((x - 8) * SCALE, y * SCALE, t);
+                const gy = fbm(x * SCALE, (y + 8) * SCALE, t) - fbm(x * SCALE, (y - 8) * SCALE, t);
+                if (Math.hypot(gx, gy) < 0.005) continue;
 
+                let angle = Math.atan2(gy, gx) + Math.PI / 2;
+                if (angle >  Math.PI / 2) angle -= Math.PI;
+                if (angle < -Math.PI / 2) angle += Math.PI;
+
+                const elevation = Math.max(100, Math.round(((v + 1) * 800) / 20) * 20);
+
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angle);
+                ctx.strokeStyle = `rgba(${HALO}, 0.9)`;
+                ctx.strokeText(String(elevation), 0, 0);
+                ctx.fillStyle = `rgba(${INK}, 0.85)`;
+                ctx.fillText(String(elevation), 0, 0);
+                ctx.restore();
+            }
+        }
+    }
+
+    function renderFrame(t) {
         // Fill scalar noise field
         for (let r = 0; r < rows; r++) {
             const wy = r * CELL * SCALE;
@@ -129,7 +171,7 @@
         for (let li = 0; li < LEVELS; li++) {
             const th          = -0.40 + (li / (LEVELS - 1)) * 0.80;
             const centrality  = 1 - Math.abs((li / (LEVELS - 1)) - 0.5) * 2;
-            ctx.strokeStyle   = `rgba(151, 71, 255, ${(0.13 + centrality * 0.14).toFixed(3)})`;
+            ctx.strokeStyle   = `rgba(${INK}, ${(0.13 + centrality * 0.14).toFixed(3)})`;
             ctx.lineWidth     = 1.0 + centrality * 0.8;
             ctx.beginPath();
 
@@ -162,9 +204,26 @@
 
             ctx.stroke();
         }
+
+        if (LABELED) drawElevationLabels(t);
     }
 
-    window.addEventListener('resize', resize);
-    resize();
-    requestAnimationFrame(draw);
+    function loop(ts) {
+        requestAnimationFrame(loop);
+        renderFrame(ts * 0.000025); // drift speed — full pattern cycle ~2 minutes
+    }
+
+    if (reducedMotion) {
+        // Still print the map — just don't animate it.
+        resize();
+        renderFrame(0);
+        window.addEventListener('resize', () => {
+            resize();
+            renderFrame(0);
+        });
+    } else {
+        window.addEventListener('resize', resize);
+        resize();
+        requestAnimationFrame(loop);
+    }
 })();

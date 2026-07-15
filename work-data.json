@@ -79,16 +79,41 @@
       "title": "Projects",
       "items": [
         {
-          "title": "Gmail MCP Tool Planner",
+          "title": "ML Paper Architecture Discovery & D3.js Visualization Pipeline",
           "date": "2026",
-          "description": "The Gmail MCP Tool Planner is a hybrid tool\u2011chain designed to automate Gmail tasks by first discovering available Gmail MCP (Model Context Protocol) tools and then ranking the most relevant ones for a user\u2019s request. It uses a Node.js entry point that queries the @gongrzhe/server-gmail-autoauth-mcp server to list tools, and a local language model (LLM) to evaluate and rank those tools. The planner outputs the selected tool context and a generated prompt, which can be sent to a local Ollama instance via the OpenAI API format for further processing. The repository includes Python scripts for listing tools and interfacing with Ollama, along with environment\u2011variable overrides to switch between local and cloud LLMs. Google OAuth credentials are required for Gmail actions, and the setup intentionally separates planning from execution, allowing developers to extend the system with custom tool\u2011execution logic.",
+          "description": "Automated system for discovering and visualizing novel machine learning architectures from arXiv papers. Uses Claude AI to classify papers for architectural novelty, extracts full text via ar5iv, and generates custom D3.js visualizations showing data flow through discovered architectures. Implements idempotent state tracking to enable incremental runs without redundant API calls, producing self-contained interactive HTML visualizations and metadata JSON for each accepted paper.",
           "tags": [
-            "MCP",
-            "LLM",
-            "Agents",
-            "Tool Planning"
+            "Python",
+            "Claude API",
+            "arXiv Integration",
+            "D3.js Visualizations",
+            "State Management"
           ],
-          "link": "https://github.com/aryanthomare/MCPGmail"
+          "link": "https://github.com/aryanthomare/architecture-discovery"
+        },
+        {
+          "title": "HuggingFace Paper Visuals \u2014 AI-Powered ML Research Explorer",
+          "date": "2026",
+          "description": "A full-stack web application that discovers machine-learning research papers and generates accessible learning resources. Automatically creates college-level explanations via Claude Opus 4.8 and runnable code demonstrations from repository sources. Features an interactive dashboard with real-time topic filtering, upvote-based ranking charts, and detailed paper views with explanations, code walkthroughs, and embedded demos. Implements graceful degradation with optional API keys and disk-based caching for zero-database operation.",
+          "tags": [
+            "FastAPI",
+            "Claude API & Structured Outputs",
+            "Vanilla JavaScript SPA",
+            "API Integration"
+          ]
+        },
+        {
+          "title": "Distributed PyTorch Training on Raspberry Pi Clusters",
+          "date": "2026",
+          "description": "A distributed training orchestration system for PyTorch models on Raspberry Pi clusters. Provides SSH-based provisioning, heterogeneous data parallelism with capacity-aware batch scaling, real-time thermal monitoring via GPIO/PWM fan control, and a FastAPI dashboard with WebSocket live visualization. Implements advanced DDP concepts including gradient reweighting, checkpoint broadcasting, and gloo-backend communication on ARM hardware.",
+          "tags": [
+            "PyTorch",
+            "Distributed Training",
+            "DDP",
+            "Raspberry Pi",
+            "SSH Orchestration",
+            "FastAPI"
+          ]
         },
         {
           "title": "End-to-End Handwriting Generation System",
