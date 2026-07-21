@@ -57,7 +57,6 @@ const nextbutton = document.getElementById('arrow_right');
 const prevbutton = document.getElementById('arrow_left');
 
 const descriptionElement = document.getElementById('carousel-description');
-const statsElement = document.getElementById('gallery-stats');
 const frameCounterElement = document.getElementById('frame-counter');
 
 function renderFrame() {
@@ -66,7 +65,6 @@ function renderFrame() {
     frameCounterElement.textContent = `frame ${currentIndex + 1} / ${images.length}`;
 }
 
-statsElement.textContent = `renders: ${images.length} logged`;
 renderFrame();
 
 

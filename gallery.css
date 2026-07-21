@@ -154,14 +154,6 @@ a:focus-visible,
     margin: 0 0 14px;
 }
 
-.stats_line {
-    font-family: var(--font-mono);
-    font-size: 11.5px;
-    letter-spacing: 0.08em;
-    color: var(--ch1);
-    margin: 0;
-}
-
 /* ----------------------------------------------------------------- viewer */
 
 .viewer {

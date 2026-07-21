@@ -32,7 +32,6 @@
                 <p class="eyebrow"># identification &mdash; profile</p>
                 <h1 class="hero_title" data-typewriter="About Me"><span class="typewriter_text"></span><span class="typing_cursor" aria-hidden="true"></span></h1>
                 <p class="hero_description">Computer Engineering student at the University of Michigan focused on software systems, machine learning, and embedded projects with real-world impact.</p>
-                <p class="stats_line" id="about-stats" aria-live="polite"></p>
                 <div class="meta_row">
                     <p><span>Base</span>Ann Arbor, MI &middot; from Toronto, ON</p>
                     <p><span>Role</span>Computer Engineering @ UMich</p>
@@ -108,14 +107,6 @@
             <p class="foot_note">&copy; 2026 Aryan Thomare &mdash; profile compiled from a repo of one</p>
         </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const fields = document.querySelectorAll('.channel_card').length;
-            const orgs = document.querySelectorAll('.chip').length;
-            document.getElementById('about-stats').textContent = `focus areas: ${fields} · involvement: ${orgs} orgs`;
-        });
-    </script>
 </body>
 
 </html>
