@@ -57,22 +57,26 @@ const nextbutton = document.getElementById('arrow_right');
 const prevbutton = document.getElementById('arrow_left');
 
 const descriptionElement = document.getElementById('carousel-description');
+const statsElement = document.getElementById('gallery-stats');
+const frameCounterElement = document.getElementById('frame-counter');
 
+function renderFrame() {
+    imageElement.src = images[currentIndex].src;
+    descriptionElement.textContent = images[currentIndex].description;
+    frameCounterElement.textContent = `frame ${currentIndex + 1} / ${images.length}`;
+}
 
-imageElement.src = images[currentIndex].src;
-descriptionElement.textContent = images[currentIndex].description;
-
+statsElement.textContent = `renders: ${images.length} logged`;
+renderFrame();
 
 
 nextbutton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % images.length;
-    imageElement.src = images[currentIndex].src;
-    descriptionElement.textContent = images[currentIndex].description;
+    renderFrame();
 });
 
 prevbutton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
-    imageElement.src = images[currentIndex].src;
-    descriptionElement.textContent = images[currentIndex].description;
+    renderFrame();
 });
 
