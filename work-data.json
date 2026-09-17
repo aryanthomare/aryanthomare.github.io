@@ -79,6 +79,22 @@
       "title": "Projects",
       "items": [
         {
+          "title": "AutoSchematic — Multi-Agent Board Research & Verified KiCad Schematics",
+          "date": "2026",
+          "description": "An end-to-end system that turns a one-line board idea into a KiCad schematic that KiCad itself verifies. Research runs on Agentic Taskforce, a custom ticket-based multi-agent framework built on LangChain and a shared SQLite ticket board. A Head Ideator agent (Claude Opus) chooses the complete parts list, confirming every part has a real KiCad symbol and reusing parts from a shared datasheet library, then holds its research tickets until a human approves the list. Each approved part becomes its own ticket, drained by up to 12 parallel Component Researcher agents (Claude Sonnet) that find, download, and read the part's datasheet and return a sourced component card, taking pin data from KiCad's libraries instead of error-prone PDF text extraction. The ideator cross-checks the cards against each other, a Schematic Describer agent writes a buildable spec.md, and the ideator keeps dispatching new tickets until the spec is good enough to ship. Generation then trims each datasheet to the pages that matter (pin tables, application circuits, ratings), has Claude emit a netlist intermediate representation through tool calls against 225 KiCad symbol libraries, and compiles it deterministically into a schematic and project. Every design goes through an automatic repair loop of pin-level validation, KiCad ERC, and a netlist round-trip diff that catches any wire that didn't actually connect. A FastAPI web UI runs the whole flow, with the approval gate, live pipeline progress, a browsable datasheet library, and per-board API spend.",
+          "tags": [
+            "Python",
+            "Claude API",
+            "Multi-Agent Systems",
+            "LangChain",
+            "KiCad",
+            "FastAPI",
+            "PDF Processing",
+            "Hardware Design"
+          ],
+          "link": "https://github.com/aryanthomare/AutoSchematic"
+        },
+        {
           "title": "ML Paper Architecture Discovery & D3.js Visualization Pipeline",
           "date": "2026",
           "description": "Automated system for discovering and visualizing novel machine learning architectures from arXiv papers. Uses Claude AI to classify papers for architectural novelty, extracts full text via ar5iv, and generates custom D3.js visualizations showing data flow through discovered architectures. Implements idempotent state tracking to enable incremental runs without redundant API calls, producing self-contained interactive HTML visualizations and metadata JSON for each accepted paper.",
