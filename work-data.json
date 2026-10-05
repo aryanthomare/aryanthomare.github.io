@@ -3,9 +3,8 @@
     {
       "items": [
         {
-          "title": "Derivative Path Inc. - Machine Learning Intern",
           "description": "Researching and prototyping neural network models to improve traditional quantitative methods in derivatives pricing and risk measurement. Building deep learning models (feedforward, CNNs, RNNs/LSTMs, transformers) to replace Monte Carlo based methods. Designing experiments comparing neural models against benchmark analytical solutions and traditional numerical methods. Developing data pipelines for generating training data from pricing engines and preprocessing financial time series. Analyzing accuracy, stability, computational performance, and potential latency improvements for complex derivatives and portfolio risk metrics.",
-          "date": "2025 - 2026",
+          "title": "Derivative Path Inc. - Machine Learning Intern",
           "tags": [
             "Deep Learning",
             "PyTorch",
@@ -13,63 +12,64 @@
             "Derivatives Pricing",
             "Risk Management",
             "Python"
-          ]
+          ],
+          "date": "2025 - 2026"
         },
         {
+          "description": "Data and A.I. Developer Intern internship with the Data & AI Platforms team focusing on data platform development and AI integration. Working on data pipeline architecture, platform optimization, and supporting data-driven decision making across the organization. Collaborating with cross-functional teams to implement scalable data solutions and enhance platform capabilities.",
+          "date": "2025",
+          "title": "ATB Financial - Data and A.I. Developer Intern",
           "tags": [
             "Data Engineering",
             "AI Platforms",
             "Python",
             "Data Pipelines",
             "Financial Services"
-          ],
-          "description": "Data and A.I. Developer Intern internship with the Data & AI Platforms team focusing on data platform development and AI integration. Working on data pipeline architecture, platform optimization, and supporting data-driven decision making across the organization. Collaborating with cross-functional teams to implement scalable data solutions and enhance platform capabilities.",
-          "date": "2025",
-          "title": "ATB Financial - Data and A.I. Developer Intern"
+          ]
         },
         {
+          "description": "Co-founded consulting firm helping companies reduce expenditures through ML/AI optimization solutions. Led development of MLP regression model trained on web-scraped news articles and live APIs to predict economic trends (Bullish/Bearish/Neutral). Architected larger MLP model for commodity price prediction and export location optimization. Led client acquisition, securing founding client.",
           "tags": [
             "Machine Learning",
             "Python",
             "Web Scraping",
             "Business Development"
           ],
-          "description": "Co-founded consulting firm helping companies reduce expenditures through ML/AI optimization solutions. Led development of MLP regression model trained on web-scraped news articles and live APIs to predict economic trends (Bullish/Bearish/Neutral). Architected larger MLP model for commodity price prediction and export location optimization. Led client acquisition, securing founding client.",
           "date": "2024",
           "title": "Sequova Consulting Inc. - Cofounder/Developer"
         },
         {
-          "title": "Investment Management Corporation of Ontario (IMCO) - Software Engineering Intern",
           "description": "Led team developing Python tools to improve daily operations for Performance Measurement and Analysis. Automated data transfer between performance systems. Conducted Python training for team members to maintain codebase.",
-          "date": "2024",
+          "title": "Investment Management Corporation of Ontario (IMCO) - Software Engineering Intern",
           "tags": [
             "Python",
             "Automation",
             "Team Leadership",
             "Finance"
-          ]
+          ],
+          "date": "2024"
         },
         {
+          "title": "Steam Works Studio - Lead Instructor",
           "description": "Taught 8 unique courses covering coding, robotics, and 3D printing for children aged 5-15 (35 hours/week during summer). Handled customer interactions at advertising events and advised on marketing strategies. Oversaw hiring and created curriculum for 4 new courses with documented teaching procedures.",
+          "date": "2023",
           "tags": [
             "Education",
             "Robotics",
             "Curriculum Development",
             "Leadership"
-          ],
-          "date": "2023",
-          "title": "Steam Works Studio - Lead Instructor"
+          ]
         },
         {
+          "description": "Developed a mobile application with Python, Kivy, and SQLite for iOS and Android to support local businesses during COVID-19, in collaboration with the Economic Development Council of Ontario. Created custom Linux and macOS distributions for App Store deployment. Built and maintained a database with a user interface for business data interaction.",
+          "title": "Localy Mississauga - Founder",
+          "date": "2022",
           "tags": [
             "Mobile Development",
             "Python",
             "SQLite",
             "Cross-Platform"
-          ],
-          "title": "Localy Mississauga - Founder",
-          "description": "Developed a mobile application with Python, Kivy, and SQLite for iOS and Android to support local businesses during COVID-19, in collaboration with the Economic Development Council of Ontario. Created custom Linux and macOS distributions for App Store deployment. Built and maintained a database with a user interface for business data interaction.",
-          "date": "2022"
+          ]
         }
       ],
       "title": "Work Experience"
@@ -77,9 +77,23 @@
     {
       "items": [
         {
-          "title": "BrushFields \u2014 Vector Field Painter",
+          "title": "Gravity Simulations and Visuals \u2014 GPU N-Body Sandbox and Renderer",
           "date": "2026",
+          "description": "A CUDA rewrite of an earlier pygame n-body simulation, written against NVIDIA Warp. All-pairs gravity streams source bodies through shared memory in tiles, and leapfrog integration with substeps sustains 32k mutually attracting bodies at 9.6 ms/frame on an RTX 5080, or 4M massless particles around 100 bodies at 4 ms. Contacts merge via pointer-jumping group resolution and stream compaction, and Warp writes directly into OpenGL buffers through CUDA interop, so state never returns to the CPU. A second renderer starts one particle per output pixel and shades it by displacement or speed, streaming frames straight into NVENC, with a Dear ImGui editor for composing the scenes.",
+          "tags": [
+            "Python",
+            "CUDA",
+            "NVIDIA Warp",
+            "OpenGL",
+            "N-Body Simulation",
+            "Real-Time Rendering",
+            "Video Generation"
+          ]
+        },
+        {
+          "title": "BrushFields \u2014 Vector Field Painter",
           "description": "A generative art app that paints the flow of user-defined 2D dynamical systems. Equations are compiled with math.js and particles are integrated with fourth-order Runge\u2013Kutta, while p5.brush renders their paths in gouache, oil, watercolour or ink, with stroke pressure driven by particle speed. Oil strokes are built from individually seeded bristles, and live strokes use deterministic seeding so they redraw stably every frame. WebGL framebuffer layering and a time-budgeted draw queue keep it interactive.",
+          "date": "2026",
           "tags": [
             "JavaScript",
             "p5.js",
@@ -91,8 +105,8 @@
           "link": "https://github.com/aryanthomare/BrushFields"
         },
         {
-          "title": "AutoSchematic \u2014 Multi-Agent Board Research & Verified KiCad Schematics",
           "description": "An end-to-end system that turns a one-line board idea into a KiCad schematic that KiCad itself verifies. Research runs on Agentic Taskforce, a custom ticket-based multi-agent framework built on LangChain and a shared SQLite ticket board. A Head Ideator agent (Claude Opus) chooses the complete parts list, confirming every part has a real KiCad symbol and reusing parts from a shared datasheet library, then holds its research tickets until a human approves the list. Each approved part becomes its own ticket, drained by up to 12 parallel Component Researcher agents (Claude Sonnet) that find, download, and read the part's datasheet and return a sourced component card, taking pin data from KiCad's libraries instead of error-prone PDF text extraction. The ideator cross-checks the cards against each other, a Schematic Describer agent writes a buildable spec.md, and the ideator keeps dispatching new tickets until the spec is good enough to ship. Generation then trims each datasheet to the pages that matter (pin tables, application circuits, ratings), has Claude emit a netlist intermediate representation through tool calls against 225 KiCad symbol libraries, and compiles it deterministically into a schematic and project. Every design goes through an automatic repair loop of pin-level validation, KiCad ERC, and a netlist round-trip diff that catches any wire that didn't actually connect. A FastAPI web UI runs the whole flow, with the approval gate, live pipeline progress, a browsable datasheet library, and per-board API spend.",
+          "title": "AutoSchematic \u2014 Multi-Agent Board Research & Verified KiCad Schematics",
           "tags": [
             "Python",
             "Claude API",
@@ -107,7 +121,6 @@
           "link": "https://github.com/aryanthomare/AutoSchematic"
         },
         {
-          "link": "https://github.com/aryanthomare/architecture-discovery",
           "tags": [
             "Python",
             "Claude API",
@@ -116,24 +129,23 @@
             "State Management"
           ],
           "date": "2026",
+          "description": "Automated system for discovering and visualizing novel machine learning architectures from arXiv papers. Uses Claude AI to classify papers for architectural novelty, extracts full text via ar5iv, and generates custom D3.js visualizations showing data flow through discovered architectures. Implements idempotent state tracking to enable incremental runs without redundant API calls, producing self-contained interactive HTML visualizations and metadata JSON for each accepted paper.",
           "title": "ML Paper Architecture Discovery & D3.js Visualization Pipeline",
-          "description": "Automated system for discovering and visualizing novel machine learning architectures from arXiv papers. Uses Claude AI to classify papers for architectural novelty, extracts full text via ar5iv, and generates custom D3.js visualizations showing data flow through discovered architectures. Implements idempotent state tracking to enable incremental runs without redundant API calls, producing self-contained interactive HTML visualizations and metadata JSON for each accepted paper."
+          "link": "https://github.com/aryanthomare/architecture-discovery"
         },
         {
-          "date": "2026",
           "description": "A full-stack web application that discovers machine-learning research papers and generates accessible learning resources. Automatically creates college-level explanations via Claude Opus 4.8 and runnable code demonstrations from repository sources. Features an interactive dashboard with real-time topic filtering, upvote-based ranking charts, and detailed paper views with explanations, code walkthroughs, and embedded demos. Implements graceful degradation with optional API keys and disk-based caching for zero-database operation.",
+          "title": "HuggingFace Paper Visuals \u2014 AI-Powered ML Research Explorer",
+          "date": "2026",
           "tags": [
             "FastAPI",
             "Claude API & Structured Outputs",
             "Vanilla JavaScript SPA",
             "API Integration"
-          ],
-          "title": "HuggingFace Paper Visuals \u2014 AI-Powered ML Research Explorer"
+          ]
         },
         {
           "date": "2026",
-          "title": "Distributed PyTorch Training on Raspberry Pi Clusters",
-          "description": "A distributed training orchestration system for PyTorch models on Raspberry Pi clusters. Provides SSH-based provisioning, heterogeneous data parallelism with capacity-aware batch scaling, real-time thermal monitoring via GPIO/PWM fan control, and a FastAPI dashboard with WebSocket live visualization. Implements advanced DDP concepts including gradient reweighting, checkpoint broadcasting, and gloo-backend communication on ARM hardware.",
           "tags": [
             "PyTorch",
             "Distributed Training",
@@ -141,10 +153,14 @@
             "Raspberry Pi",
             "SSH Orchestration",
             "FastAPI"
-          ]
+          ],
+          "title": "Distributed PyTorch Training on Raspberry Pi Clusters",
+          "description": "A distributed training orchestration system for PyTorch models on Raspberry Pi clusters. Provides SSH-based provisioning, heterogeneous data parallelism with capacity-aware batch scaling, real-time thermal monitoring via GPIO/PWM fan control, and a FastAPI dashboard with WebSocket live visualization. Implements advanced DDP concepts including gradient reweighting, checkpoint broadcasting, and gloo-backend communication on ARM hardware."
         },
         {
           "title": "End-to-End Handwriting Generation System",
+          "description": "A comprehensive Machine Learning pipeline for synthesizing custom handwriting using a Conditional Variational Autoencoder (CVAE). The system manages the full workflow, encompassing data collection via web interfaces, structured data preparation, and model training. Core components include a PyTorch-based CVAE model, latent space sampling for inference, and utilities for data preprocessing and graph visualization. This architecture demonstrates end-to-end deep learning deployment for generative tasks.",
+          "date": "2026",
           "tags": [
             "PyTorch",
             "CVAE",
@@ -153,13 +169,10 @@
             "Data Pipeline",
             "Machine Learning"
           ],
-          "description": "A comprehensive Machine Learning pipeline for synthesizing custom handwriting using a Conditional Variational Autoencoder (CVAE). The system manages the full workflow, encompassing data collection via web interfaces, structured data preparation, and model training. Core components include a PyTorch-based CVAE model, latent space sampling for inference, and utilities for data preprocessing and graph visualization. This architecture demonstrates end-to-end deep learning deployment for generative tasks.",
-          "date": "2026",
           "link": "https://github.com/aryanthomare/HandwritingGenerator"
         },
         {
           "title": "AI-Powered Codebase Documentation System",
-          "link": "https://github.com/aryanthomare/ProjectSummarizer",
           "tags": [
             "Python",
             "LLMs",
@@ -167,12 +180,15 @@
             "CLI Tools",
             "Ollama"
           ],
+          "date": "2026",
           "description": "An automated, two-stage pipeline designed to generate comprehensive technical documentation from a codebase. The system first uses Python CLI tools to discover and filter source files. The core module analyzes the entire codebase, managing context window limitations while interfacing with a local Large Language Model (Ollama). It synthesizes structured, high-fidelity documentation using external prompt templates, ensuring scalable documentation generation for complex, multi-file projects.",
-          "date": "2026"
+          "link": "https://github.com/aryanthomare/ProjectSummarizer"
         },
         {
-          "title": "DrawBot - Autonomous Whiteboard Drawing Robot",
           "description": "Engineered a wall-climbing robot that autonomously reproduces digital images on magnetic whiteboards. Led development of navigation and control systems including motor PID loops, encoder integration, and odometry sensor fusion. Implemented servo and marker control logic, integrated webcam-based computer vision for absolute positioning, and developed a web-based debugging interface for manual control and telemetry. Collaborated on software integration using FreeRTOS task scheduling, coordinating real-time G-code execution, navigation state machines, and multi-subsystem synchronization across drive systems, drawing mechanisms, and localization sensors.",
+          "link": "https://github.com/pyim-git/eecs473-fa25-drawbot",
+          "title": "DrawBot - Autonomous Whiteboard Drawing Robot",
+          "date": "2025",
           "tags": [
             "Embedded Systems",
             "FreeRTOS",
@@ -181,64 +197,62 @@
             "Robotics",
             "ESP32",
             "CAD"
-          ],
-          "date": "2025",
-          "link": "https://github.com/pyim-git/eecs473-fa25-drawbot"
+          ]
         },
         {
-          "title": "Image Filtering with Gaussian & Laplacian Pyramids",
-          "description": "Applied Gaussian and Laplacian pyramids for image processing tasks including multi-resolution blending, detail enhancement, and noise reduction. Leveraged pyramid techniques to decompose, filter, and combine images.",
+          "date": "2025",
           "tags": [
             "Python",
             "Computer Vision",
             "Image Filters"
           ],
-          "date": "2025"
+          "title": "Image Filtering with Gaussian & Laplacian Pyramids",
+          "description": "Applied Gaussian and Laplacian pyramids for image processing tasks including multi-resolution blending, detail enhancement, and noise reduction. Leveraged pyramid techniques to decompose, filter, and combine images."
         },
         {
-          "description": "Developed ML model predicting 30-day ICU patient mortality using Python and scikit-learn. Implemented feature extraction, missing data imputation, and normalization. Conducted hyperparameter tuning with cross-validation for logistic regression. Addressed class imbalance with asymmetric cost functions and explored non-linear modeling using kernel methods.",
+          "title": "ICU Patient Survival Prediction Model",
           "tags": [
             "Python",
             "Data Analysis",
             "Machine Learning"
           ],
           "date": "2025",
-          "title": "ICU Patient Survival Prediction Model"
+          "description": "Developed ML model predicting 30-day ICU patient mortality using Python and scikit-learn. Implemented feature extraction, missing data imputation, and normalization. Conducted hyperparameter tuning with cross-validation for logistic regression. Addressed class imbalance with asymmetric cost functions and explored non-linear modeling using kernel methods."
         },
         {
-          "description": "A Python-based Matplotlib visualizer demonstrating the Perceptron Algorithm to find linear classifiers for linearly separable datasets.",
           "tags": [
             "Python",
             "Data Visualization",
             "Machine Learning"
           ],
+          "date": "2025",
           "title": "Linear Classifier / Perceptron Algorithm Visualizer",
-          "date": "2025"
+          "description": "A Python-based Matplotlib visualizer demonstrating the Perceptron Algorithm to find linear classifiers for linearly separable datasets."
         },
         {
-          "description": "Developed assembler, simulator, and linker in C to support LC2K ISA, allowing users to write and simulate Assembly code. Simulations run on custom 5-stage pipelined processor with caching.",
-          "title": "LC2K ISA & Processor",
           "date": "2024",
           "tags": [
             "C",
             "Assembly",
             "Processors"
-          ]
+          ],
+          "title": "LC2K ISA & Processor",
+          "description": "Developed assembler, simulator, and linker in C to support LC2K ISA, allowing users to write and simulate Assembly code. Simulations run on custom 5-stage pipelined processor with caching."
         },
         {
-          "title": "Neurosurf",
-          "link": "https://github.com/aryanthomare/Neurosurf",
-          "date": "2024",
-          "description": "Utilized commercial EEG headband (Muse) to extract user emotional state. Captured live sensor data from 4 sensors, processing via Fourier transform to determine frequency band strength. Trained ML models detecting blinks with 98% accuracy and classical music listening with 85% accuracy. Created graphical GUI displaying data and model predictions.",
           "tags": [
             "Sensors",
             "Machine Learning",
             "Object Oriented",
             "Data Processing"
-          ]
+          ],
+          "title": "Neurosurf",
+          "date": "2024",
+          "link": "https://github.com/aryanthomare/Neurosurf",
+          "description": "Utilized commercial EEG headband (Muse) to extract user emotional state. Captured live sensor data from 4 sensors, processing via Fourier transform to determine frequency band strength. Trained ML models detecting blinks with 98% accuracy and classical music listening with 85% accuracy. Created graphical GUI displaying data and model predictions."
         },
         {
-          "description": "Wrapper for Interactive Brokers TCP Socket Protocol API collecting live options trading data and storing in Excel workbooks. Data filtered through trading criteria to generate purchase recommendations.",
+          "title": "Options Trading Live Data Collector",
           "date": "2024",
           "tags": [
             "Quantitative Analysis",
@@ -246,76 +260,76 @@
             "Object Oriented",
             "Finance"
           ],
-          "title": "Options Trading Live Data Collector"
+          "description": "Wrapper for Interactive Brokers TCP Socket Protocol API collecting live options trading data and storing in Excel workbooks. Data filtered through trading criteria to generate purchase recommendations."
         },
         {
           "description": "Program using Python and Requests module to collect University of Michigan MBus system data. Tracks bus locations in real-time, plotting them on live map to help understand the bus system and navigate campus.",
           "title": "MBus API Tracker",
+          "date": "2022",
           "tags": [
             "API",
             "Data Visualization",
             "User Interfaces"
-          ],
-          "date": "2022"
+          ]
         },
         {
           "title": "N-Body Gravity Simulation",
-          "date": "2020",
+          "description": "2D physics engine using Newtonian physics laws and Euler integration to simulate gravitational motion. Includes functionality to visualize gravitational field lines and object trajectories.",
           "tags": [
             "Simulation",
             "Physics",
             "Object Oriented",
             "Data Visualization"
           ],
-          "description": "2D physics engine using Newtonian physics laws and Euler integration to simulate gravitational motion. Includes functionality to visualize gravitational field lines and object trajectories."
+          "date": "2020"
         },
         {
+          "date": "2019",
           "tags": [
             "OpenCV",
             "Face Detection",
             "Video Processing"
           ],
           "title": "OpenCV Face Detection",
-          "date": "2019",
           "description": "A Python software suite using OpenCV to detect faces from video files or live camera streams. It uses a Haar Cascade Classifier to detect faces and draw bounding boxes. The suite also includes programs to collect facial data for Haar Cascade Classifier training."
         },
         {
-          "date": "2019",
           "tags": [
             "Simulation",
             "Animation",
             "Digital Logic"
           ],
-          "title": "Elevator GUI Simulation",
-          "description": "Elevator simulation using GUI to show movement in a 10-floor building. Includes realistic elevator animations and button functionality on each floor and inside the elevator."
+          "date": "2019",
+          "description": "Elevator simulation using GUI to show movement in a 10-floor building. Includes realistic elevator animations and button functionality on each floor and inside the elevator.",
+          "title": "Elevator GUI Simulation"
         },
         {
+          "date": "2019",
           "tags": [
             "Web Scraping",
             "Data Mining",
             "Calculus"
           ],
-          "date": "2019",
           "description": "A program using Python and BeautifulSoup to scrape University of Michigan Calculus II websites for answer keys. It creates an HTML webpage enabling quick searching of problems with links to official solutions.",
           "title": "Calculus II Answer Key Web Scraper"
         },
         {
+          "description": "A Python program using the Google Maps API to scrape a database of every city and town in Ontario, Canada. It uses restricted API calls to extract location names, attractions, and population data, storing them in an SQLite database. It enables searching for locations and displaying information in a user-friendly manner.",
+          "date": "2018",
           "tags": [
             "API",
             "Databases",
             "Scraper"
           ],
-          "date": "2018",
-          "title": "Google Maps API Scraper",
-          "description": "A Python program using the Google Maps API to scrape a database of every city and town in Ontario, Canada. It uses restricted API calls to extract location names, attractions, and population data, storing them in an SQLite database. It enables searching for locations and displaying information in a user-friendly manner."
+          "title": "Google Maps API Scraper"
         },
         {
-          "date": "2018",
-          "description": "Python program using list of points to create colored Voronoi diagrams.",
           "tags": [
             "Digital Art"
           ],
-          "title": "Voronoi Diagram Generator"
+          "date": "2018",
+          "title": "Voronoi Diagram Generator",
+          "description": "Python program using list of points to create colored Voronoi diagrams."
         }
       ],
       "title": "Projects"
