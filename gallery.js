@@ -1,3 +1,17 @@
+// The carousel shows every image in assets/gallery/, discovered at runtime.
+//
+// GitHub Pages serves no directory listing, so the folder is read through the
+// GitHub contents API for the deployed repo: drop an image into
+// assets/gallery/, commit it, and it appears with no code change. When that
+// call can't be made (rate limit, offline, or a file not committed yet) the
+// listing falls back to the committed manifest.json, which
+// tools/gallery_manifest.py regenerates.
+
+const GALLERY_DIR = 'assets/gallery';
+const GALLERY_LISTING_URL = 'https://api.github.com/repos/aryanthomare/aryanthomare.github.io/contents/assets/gallery?ref=master';
+const GALLERY_MANIFEST_URL = `${GALLERY_DIR}/manifest.json`;
+const IMAGE_FILE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
+
 function shuffleArray(array) {
     for (var i = array.length - 1; i >= 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -7,74 +21,84 @@ function shuffleArray(array) {
     }
 }
 
+// Filenames hold spaces, parentheses and '=' (the vector field renders), so
+// each one is encoded before it becomes a URL.
+function toImagePaths(filenames) {
+    return filenames
+        .filter(name => IMAGE_FILE.test(name))
+        .map(name => `${GALLERY_DIR}/${encodeURIComponent(name)}`);
+}
 
-const images = [
-    { src: 'assets/f1.png', description: 'A Simple Fractal Pattern with Lines of Decreasing Length' },
-    { src: 'assets/gr1.jpeg', description: 'A Visualizer of Gravitational Interactions Between 2 Moving Objects with Positive Equal Mass' },
-    { src: 'assets/gr2.jpeg', description: 'A Visualizer of Gravitational Interactions Between 4 Moving Objects with Positive Equal Mass' },
-    { src: 'assets/gr3.jpeg', description: 'A Visualizer of Gravitational Interactions Between 2 Moving Objects with Negative Equal Mass' },
-    { src: 'assets/gr4.jpeg', description: 'A Visualizer of Gravitational Interactions Between 4 Moving Objects with Negative Equal Mass' },
-    { src: 'assets/gr5.jpeg', description: 'A Colored Visualizer of Gravitational Interactions of 1 Stationary Object with Positive Mass' },
-    { src: 'assets/gr6.jpeg', description: 'A Visualizer of Gravitational Interactions Between 2 Stationary Objects with Negative Equal Mass' },
-    { src: 'assets/grad.png', description: 'A Generated Color Gradient Across Multiple Set Colors' },
-    { src: 'assets/hill1.png', description: 'A Generated Koch Curve with Custom Angle' },
-    { src: 'assets/hill2.png', description: 'A Generated Koch Curve with Custom Angle' },
-    { src: 'assets/julia1.png', description: 'An Image of a Section of a Julia Set' },
-    { src: 'assets/julia2.png', description: 'A Colored Image of a Section of a Julia Set' },
-    { src: 'assets/julia3.png', description: 'A Colored Image of a Section of a Julia Set' },
-    { src: 'assets/mandelbrot.png', description: 'An Image of the Mandelbrot Set' },
-    { src: 'assets/mb1.jpeg', description: 'A Colored Image of a Section of the Mandelbrot Set' },
-    { src: 'assets/mb2.jpeg', description: 'A Colored Image of a Section of the Mandelbrot Set' },
-    { src: 'assets/mb3.jpeg', description: 'A Colored Image of a Section of the Mandelbrot Set' },
-    { src: 'assets/mb4.jpeg', description: 'A Colored Image of a Section of the Mandelbrot Set' },
-    { src: 'assets/phy1.png', description: 'A Colored Image Demonstrating Phyllotaxis' },
-    { src: 'assets/pr1.png', description: 'A Generated Image of a Smooth Hilly Terrain made from Perlin Noise' },
-    { src: 'assets/pt1.jpeg', description: 'A Visualizer of Gravitational Interactions Between 8 Stationary Objects with Negative Equal Mass' },
-    { src: 'assets/pt2.jpeg', description: 'A Visualizer of Gravitational Interactions Between 9 Stationary Objects, 8 with Negative Equal Mass and 1 with Positive Mass' },
-    { src: 'assets/pt3.jpeg', description: 'A Visualizer of Gravitational Interactions Between 4 Stationary Objects with Negative Equal Mass' },
-    { src: 'assets/pt4.jpeg', description: 'A Visualizer of Gravitational Interactions Between 9 Stationary Objects, 8 with Negative Equal Mass and 1 with Positive Mass' },
-    { src: 'assets/pt5.jpeg', description: 'A Visualizer of Gravitational Interactions Between 32 Stationary Objects, 24 with Negative Equal Mass and 8 with Equal Positive Mass' },
-    { src: 'assets/pt6.jpeg', description: 'A Visualizer of Gravitational Interactions Between 31 Stationary Objects with Negative Equal Mass' },
-    { src: 'assets/pt7.jpeg', description: 'A Visualizer of Gravitational Interactions Between 46 Stationary Objects with Negative Equal Mass' },
-    { src: 'assets/pyt1.png', description: 'A Simple Fractal Pattern Based on the Squares of the Side Lengths of a Right Angle Triangle' },
-    { src: 'assets/pyt2.png', description: 'A Simple Fractal Pattern Based on the Squares of the Side Lengths of a Right Angle Triangle' },
-    { src: 'assets/sl1.png', description: 'A Representation of a Slope Field of a Differential Equation Traced by Moving Particles' },
-    { src: 'assets/sq1.png', description: 'A Simple Fractal Pattern of Inlaied Squares' },
-    { src: 'assets/tp0.jpeg', description: 'A Generated Image of a Topographical Map of Perlin Noise Based Terrain' },
-    { src: 'assets/tp1.png', description: 'A Generated Image of a Topographical Map of Perlin Noise Based Terrain' },
-    { src: 'assets/tp2.png', description: 'A Generated Image of a Topographical Map of Perlin Noise Based Terrain' },
-    { src: 'assets/tr1.png', description: 'A Simple Fractal Pattern with Lines of Decreasing Length and Varying Angle' },
-    { src: 'assets/tr2.png', description: 'A Simple Fractal Pattern with Lines of Decreasing Length and Varying Angle' },
-    { src: 'assets/tri1.png', description: 'A Generated Image of the Sierpinski Triangle' },
-];
+async function listFromGithub() {
+    const response = await fetch(GALLERY_LISTING_URL, {
+        headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    if (!response.ok) {
+        throw new Error(`GitHub listing returned ${response.status}`);
+    }
+    const entries = await response.json();
+    return toImagePaths(entries.filter(entry => entry.type === 'file').map(entry => entry.name));
+}
 
-shuffleArray(images);
+async function listFromManifest() {
+    const response = await fetch(GALLERY_MANIFEST_URL, { cache: 'no-cache' });
+    if (!response.ok) {
+        throw new Error(`manifest.json returned ${response.status}`);
+    }
+    return toImagePaths(await response.json());
+}
 
+async function loadGallery() {
+    try {
+        const fromGithub = await listFromGithub();
+        if (fromGithub.length) {
+            return fromGithub;
+        }
+        console.warn('GitHub listed no images in assets/gallery; falling back to manifest.json');
+    } catch (error) {
+        console.warn('Could not list assets/gallery from GitHub; falling back to manifest.json', error);
+    }
+    return listFromManifest();
+}
+
+const images = [];
 let currentIndex = 0;
 
 const imageElement = document.getElementById('carousel-image');
 const nextbutton = document.getElementById('arrow_right');
 const prevbutton = document.getElementById('arrow_left');
-
-const descriptionElement = document.getElementById('carousel-description');
 const frameCounterElement = document.getElementById('frame-counter');
 
 function renderFrame() {
-    imageElement.src = images[currentIndex].src;
-    descriptionElement.textContent = images[currentIndex].description;
+    imageElement.src = images[currentIndex];
     frameCounterElement.textContent = `frame ${currentIndex + 1} / ${images.length}`;
 }
 
-renderFrame();
-
-
 nextbutton.addEventListener('click', () => {
+    if (!images.length) return;
     currentIndex = (currentIndex + 1) % images.length;
     renderFrame();
 });
 
 prevbutton.addEventListener('click', () => {
+    if (!images.length) return;
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     renderFrame();
 });
 
+frameCounterElement.textContent = 'loading renders';
+
+loadGallery()
+    .then(paths => {
+        if (!paths.length) {
+            throw new Error('no images found in assets/gallery');
+        }
+        images.push(...paths);
+        shuffleArray(images);
+        currentIndex = 0;
+        renderFrame();
+    })
+    .catch(error => {
+        console.error('Could not load the gallery', error);
+        frameCounterElement.textContent = 'no renders found';
+    });
